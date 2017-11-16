@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Apple-like Login Form | Tutorialzine Demo</title>
+        
+        <!-- Our CSS stylesheet file -->
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="./plugins/jquery.1.12.4.min.js"></script>
+        <script src="./js/core.js"></script>
+		<script src="./plugins/editor/third-party/jquery-1.10.2.js"></script>
+        <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body>
+
+		<div id="formContainer">
+			<form id="login" method="post" action="./">
+				<a href="#" id="flipToRecover" class="flipLink">Forgot?</a>
+				<input type="text" name="userName" id="userName"/>
+				<input type="password" name="password" id="password"/>
+				<input type="submit" name="submit" value="Login" onclick="login_bt()"/>
+			</form>
+			<form id="recover" method="post" action="./">
+				<a href="#" id="flipToLogin" class="flipLink">Forgot?</a>
+				<input type="text" name="recoverEmail" id="recoverEmail" value="Email" />
+				<input type="submit" name="submit" value="Recover" />
+			</form>
+		</div>
+
+<!--         <footer>
+	        <h2><i>Tutorial:</i> Apple-like Login Form With CSS 3D Transforms</h2>
+            <a class="tzine" href="http://tutorialzine.com/2012/02/apple-like-login-form/">Head on to <i>Tutorial<b>zine</b></i> to download this example</a>
+        </footer> -->
+        
+        <!-- JavaScript includes -->
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="./plugins/jquery.cookie.js"></script>
+		<script src="js/script.js"></script>
+
+    </body>
+</html>
+

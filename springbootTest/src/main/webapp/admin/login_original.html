@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <script src="./plugins/jquery-3.2.1.min.js"></script>
+    <script src="./plugins/jquery.cookie.js"></script>
+    <script src="./js/core.js"></script>
+    <script type="text/javascript">
+        function login_bt(){
+            var name = $('#userName').val();
+            var password = $('#password').val();
+            login_original(name,password);
+        }
+        function login(u,p){
+            $.ajax({
+                    url: '/p/user/login',
+                    type: 'POST',
+                    data: {"r": JSON.stringify({"userName": u, "password": p})},
+                    dataType: 'JSON',
+                    success: function (data) {
+                        if (data.code == 200) {
+                            alert("成功")
+                            // save managerId and ticket, and get the role id
+                             $.cookie('managerId', data.obj.managerId);
+                             $.cookie('ticket', data.obj.ticket);
+                             $.cookie('roleId', data.obj.roleId);
+                             $.cookie('managerName', data.obj.name);
+                            window.location = 'index.html';
+                        } else {
+                            $('#username').focus();
+                            $('#password-help').text(data.msg);
+                        }
+                    },
+                    error: function (data) {
+                        $('#username').focus();
+                        // $('#password-help').text('系统错误，请稍后尝试！')
+                    }
+                }
+            )
+        }
+    </script>
+    <title></title>
+</head>
+<body>
+<br>用户名 ：<input type="text" name="userName" id="userName"/>
+<br>密  码 ：<input type="password" name="password" id="password"/>
+<br><button onclick="javascript:login_bt()">登陆</button>
+</body>
+</html>
